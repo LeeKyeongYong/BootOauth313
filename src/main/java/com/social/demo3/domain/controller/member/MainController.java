@@ -1,6 +1,7 @@
-package com.social.demo3.domain.controller.member;
-
 package com.example.demo.domain.member.controller;
+
+
+import com.social.demo3.domain.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
