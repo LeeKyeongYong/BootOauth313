@@ -25,7 +25,7 @@ public class NotProd {
     @Bean
     public ApplicationRunner init(MemberService memberService){
         return args -> {
-            memberService.join("admin","1234","");
+            memberService.join("admin","1234","admin","");
 
             IntStream.rangeClosed(1,3).forEach(i ->{
                 memberService.join("user"+i,"1234","nickname"+i,"");

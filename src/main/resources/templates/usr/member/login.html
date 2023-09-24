@@ -1,0 +1,22 @@
+<form th:action method="POST">
+    <!-- 에러 메세지 표시하는 부분 -->
+    <div th:if="${param.error}">
+        <span>올바르지 않은 회원이름 또는 비밀번호 입니다.</span>
+    </div>
+    <div>
+        <span>Username</span>
+        <input type="text" name="username" placeholder="Username">
+    </div>
+    <div>
+        <span>Password</span>
+        <input type="password" name="password" placeholder="Password">
+    </div>
+    <div>
+        <button type="submit">로그인</button>
+    </div>
+    <div>
+        <a href="/oauth2/authorization/kakao">
+            카카오로 로그인
+        </a>
+    </div>
+</form>
