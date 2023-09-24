@@ -22,9 +22,7 @@ public class MemberService {
                 .nickname(nickname)
                 .profileImgUrl(profileImgUrl)
                 .build();
-
-        System.out.println("HI");
-
+        
         return memberRepository.save(member);
     }
 
