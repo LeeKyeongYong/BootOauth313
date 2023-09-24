@@ -1,4 +1,4 @@
-package com.calendar.demo3;
+package com.social.demo3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
