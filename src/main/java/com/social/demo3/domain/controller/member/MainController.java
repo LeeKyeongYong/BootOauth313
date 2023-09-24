@@ -1,5 +1,4 @@
-package com.example.demo.domain.member.controller;
-
+package com.social.demo3.domain.controller.member;
 
 import com.social.demo3.domain.service.MemberService;
 import lombok.RequiredArgsConstructor;

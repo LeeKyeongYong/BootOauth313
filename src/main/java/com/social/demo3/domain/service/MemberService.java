@@ -22,7 +22,7 @@ public class MemberService {
                 .nickname(nickname)
                 .profileImgUrl(profileImgUrl)
                 .build();
-        
+
         return memberRepository.save(member);
     }
 
