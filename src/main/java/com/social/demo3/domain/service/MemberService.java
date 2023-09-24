@@ -14,26 +14,31 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public Member join(String username,String password,String nickname,String profileImgUrl){
+    public Member join(String username, String password, String nickname, String profileImgUrl) {
         Member member = Member
                 .builder()
-                .usernmae(username)
+                .username(username)
+                .password(passwordEncoder.encode(password))
                 .nickname(nickname)
                 .profileImgUrl(profileImgUrl)
                 .build();
+
+        System.out.println("HI");
 
         return memberRepository.save(member);
     }
 
     @Transactional
-    public Member whenSocialLogin(String providerTypeCode,String username,String nickname,String profileUrl){
+    public Member whenSocialLogin(String providerTypeCode, String username, String nickname, String profileImgUrl) {
         Optional<Member> opMember = findByUsername(username);
-        if(opMember.isPresent()) return opMember.get();
 
-        //소셜 로그인을 통한 가입시 비번은 없다.
-        return join(username,"",nickname,profileUrl); //최초 로그인 시 딱 한번 실행
+        if (opMember.isPresent()) return opMember.get();
+
+        // 소셜 로그인를 통한 가입시 비번은 없다.
+        return join(username, "", nickname, profileImgUrl); // 최초 로그인 시 딱 한번 실행
     }
-    public Optional<Member> findByUsername(String username){
+
+    public Optional<Member> findByUsername(String username) {
         return memberRepository.findByUsername(username);
     }
 }

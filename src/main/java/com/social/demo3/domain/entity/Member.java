@@ -22,7 +22,7 @@ public class Member {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private String usernmae;
+    private String username;
     private String password;
     private String nickname;
     private String profileImgUrl;
@@ -42,7 +42,7 @@ public class Member {
     }
 
     public boolean isAdmin(){
-        return "admin".equals(usernmae);
+        return "admin".equals(username);
     }
 
 }
