@@ -12,23 +12,20 @@ import java.util.stream.IntStream;
 @Configuration
 @Profile("!prod")
 public class NotProd {
-
     @Value("${custom.security.oauth2.client.registration.kakao.devUser.oauthId}")
     private String kakaoDevUserOAuthId;
-
-    @Value("${custom.security.oauth2.client.registration.kakao.devuser.nickname}")
+    @Value("${custom.security.oauth2.client.registration.kakao.devUser.nickname}")
     private String kakaoDevUserNickname;
-
     @Value("${custom.security.oauth2.client.registration.kakao.devUser.profileImgUrl}")
     private String kakaoDevUserProfileImgUrl;
 
     @Bean
-    public ApplicationRunner init(MemberService memberService){
+    public ApplicationRunner init(MemberService memberService) {
         return args -> {
-            memberService.join("admin","1234","admin","");
+            memberService.join("admin", "1234", "admin", "");
 
-            IntStream.rangeClosed(1,3).forEach(i ->{
-                memberService.join("user"+i,"1234","nickname"+i,"");
+            IntStream.rangeClosed(1, 3).forEach(i -> {
+                memberService.join("user" + i, "1234", "nickname" + i, "");
             });
 
             memberService.whenSocialLogin(
