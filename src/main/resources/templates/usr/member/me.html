@@ -1,0 +1,19 @@
+<html layout:decorate="~{user/common/layout}">
+
+<head>
+    <title th:text="로그인"></title>
+</head>
+
+<body>
+
+<main layout:fragment="main">
+    마이페이지
+
+    <div>번호 : [[${@rq.member.id}]]</div>
+    <div>이름 : [[${@rq.member.username}]]</div>
+    <div>별명 : <span th:text="${@rq.member.username}"></span></div>
+    <div></div>
+</main>
+
+</body>
+</html>
