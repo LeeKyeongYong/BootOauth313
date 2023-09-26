@@ -33,7 +33,7 @@ public class MemberService {
         if (opMember.isPresent()) return opMember.get();
 
         // 소셜 로그인를 통한 가입시 비번은 없다.
-        return join(username, "", nickname, profileImgUrl); // 최초 로그인 시 딱 한번 실행
+        return join(username, username, nickname, profileImgUrl); // 최초 로그인 시 딱 한번 실행
     }
 
     public Optional<Member> findByUsername(String username) {
