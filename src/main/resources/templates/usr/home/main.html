@@ -1,4 +1,4 @@
-<html layout:decorate="~{usr/common/layout}">
+<html>
 
 <head>
     <title th:text="메인"></title>
@@ -7,8 +7,17 @@
 <body>
 
 <main layout:fragment="main">
-    메인페이지!!
+    메인페이지
 </main>
-
+<a th:if="${@rq.logout}" href="/usr/member/login">로그인</a>
+<a th:if="${@rq.login}" href="javascript:;"
+   onclick="this.nextElementSibling.submit();">로그아웃</a>
+<form th:if="${@rq.login}"  hidden th:action="|/usr/member/logout|" method="POST"></form>
+<!-- 로그인된 경우에만 보여줄 내용 -->
+<span th:if="${@rq.login}">
+            <span th:text="${#authentication.name}"></span>
+            <img th:if="${@rq.member.profileImgUrl != ''}" width="50" th:src="${@rq.member.profileImgUrl}" alt="">
+        </span>
+<!-- 그 외 로그인 된 사용자에게 보여줄 내용 -->
 </body>
 </html>
