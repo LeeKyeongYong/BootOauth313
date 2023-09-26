@@ -2,6 +2,7 @@
 
 <head>
     <title th:text="메인"></title>
+
 </head>
 
 <body>
@@ -15,7 +16,8 @@
 <form th:if="${@rq.login}"  hidden th:action="|/usr/member/logout|" method="POST"></form>
 <!-- 로그인된 경우에만 보여줄 내용 -->
 <span th:if="${@rq.login}">
-            <span th:text="${#authentication.name}"></span>
+            <span th:text="${#authentication}"></span><br/>
+            <span th:text="${@rq.member.nickname}"></span>님 로그인을 환영합니다.
             <img th:if="${@rq.member.profileImgUrl != ''}" width="50" th:src="${@rq.member.profileImgUrl}" alt="">
         </span>
 <!-- 그 외 로그인 된 사용자에게 보여줄 내용 -->
